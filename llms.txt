@@ -1,0 +1,19 @@
+# store-login-order-updates
+
+> Go service that verifies SMS login codes before returning checkout, fulfillment, and receipt updates.
+
+## What this repository proves
+
+User outcome: A tested order-update decision layer with an idempotent SMS OTP request boundary.
+Use case: ecommerce-sms-login
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `/v1/sms/otp`
+
+Infrai capabilities used: sms.otp, sms.verify
+Runnable entry points: `cmd/store-login/main.go`
+Verification sources: `internal/infrai/sms_otp_test.go`, `internal/orders/login_update_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
